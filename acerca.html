@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melissea | Acerca de</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --miel: #E3B23C; 
+      --marron: #5A3E2B; 
+      --blanco: #FFFFFF;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      /* MISMO FONDO DE NATURALEZA QUE EL RESTO DEL SITIO */
+      background: linear-gradient(rgba(44, 34, 13, 0.6), rgba(44, 34, 13, 0.6)), 
+                 url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--blanco);
+      line-height: 1.8;
+    }
+
+    header { 
+      padding: 25px; 
+      text-align: center; 
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a { 
+      margin: 0 20px; 
+      text-decoration: none; 
+      color: white; 
+      text-transform: uppercase; 
+      font-size: 0.85rem; 
+      letter-spacing: 2px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: var(--miel); }
+
+    section { 
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 60px;
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    }
+
+    h1 { 
+      font-family: 'Playfair Display', serif; 
+      color: var(--miel); 
+      font-size: 3rem; 
+      text-align: center; 
+      margin-bottom: 40px;
+      text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--blanco);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--miel);
+      margin: 10px auto;
+    }
+
+    .history-text p { 
+      margin-bottom: 25px; 
+      text-align: justify;
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .bee-image {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 15px;
+      margin: 20px auto 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      display: block;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .about-card { padding: 30px; }
+      h1 { font-size: 2.2rem; }
+      nav a { margin: 0 10px; font-size: 0.75rem; }
+      .bee-image {
+        max-width: 100%;
+        margin: 15px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="acerca.html">Acerca de</a>
+      <a href="productos.html">Productos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <section>
+    <div class="about-card">
+      <h1>Nuestra Esencia</h1>
+
+      <!-- IMAGEN INSERTADA AQUÍ -->
+      <img src="emprendimiento_miel_abeja.PNG" alt="Apicultora trabajando con colmenas en un campo soleado" class="bee-image">
+
+      <div class="history-card">
+        <h2>Historia de Melissea</h2>
+        <div class="history-text">
+          <p>Melissea nace a inicios del 2025 como un proyecto enfocado en el cuidado capilar, la cosmética natural y el bienestar integral. La marca tiene sus raíces en una tradición familiar dedicada por años a la producción y comercialización de miel. Sin embargo, su verdadera transformación surgió a partir de una experiencia personal: atravesé una enfermedad que me impedía estudiar y trabajar durante la recuperación, afectando también la salud de mi piel y mi cabello.</p>
+          
+          <p>En medio de ese proceso, descubrí en los productos de la colmena una fuente poderosa de recuperación y bienestar. Motivada por la necesidad de sanar y por el deseo de encontrar alternativas naturales, comencé a formular productos utilizando ingredientes nobles derivados de las abejas. Con el tiempo, estas formulaciones evolucionaron hasta convertirse en una línea completa de shampoo, acondicionadores, cremas, bálsamos y jabones naturales.</p>
+          
+          <p>Hoy, cada producto de Melissea es elaborado con el apoyo de profesionales, garantizando calidad, seguridad y resultados reales. Melissea no solo ofrece productos naturales; también promueve el valor de las abejas, la sostenibilidad y el autocuidado consciente, buscando mejorar la vida de las personas a través de soluciones responsables con el entorno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Melissea – Mundo de las Abejas
+  </footer>
+
+</body>
+</html>

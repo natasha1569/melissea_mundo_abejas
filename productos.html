@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melissea | Productos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --miel: #E3B23C; 
+      --miel-oscuro: #C89B2C;
+      --crema: #FBF8F2; 
+      --marron: #5A3E2B; 
+      --blanco: #FFFFFF; 
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      min-height: 100vh;
+      /* FONDO IGUAL AL DE LA PÁGINA PRINCIPAL */
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--blanco);
+      line-height: 1.8;
+    }
+
+    header { 
+      padding: 25px 10%; 
+      display: flex;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a { 
+      margin: 0 20px; 
+      text-decoration: none; 
+      color: white; 
+      text-transform: uppercase; 
+      font-size: 0.85rem; 
+      letter-spacing: 2px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--miel); }
+
+    .titulo-seccion {
+      text-align: center; 
+      margin: 60px 0 10px; 
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--miel);
+      text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .subtitulo {
+      text-align: center;
+      font-weight: 300;
+      margin-bottom: 50px;
+      letter-spacing: 1px;
+    }
+
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 40px; 
+      padding: 0 10% 80px; 
+    }
+    
+    .card { 
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(10px);
+      padding: 20px; 
+      text-align: center; 
+      border-radius: 20px; 
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--miel);
+    }
+    
+    .card img { 
+      width: 100%; 
+      height: 280px; 
+      object-fit: contain;
+      border-radius: 12px; 
+      margin-bottom: 15px;
+      background: transparent; 
+    }
+    
+    .nombre-producto {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--blanco);
+      letter-spacing: 0.5px;
+    }
+
+    .precio { 
+      color: var(--miel); 
+      font-weight: 800; 
+      font-size: 1.6rem; 
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .titulo-seccion { font-size: 2.2rem; }
+      .grid { padding: 0 5% 50px; }
+      header { padding: 20px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="acerca.html">Acerca</a>
+      <a href="productos.html">Productos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <h1 class="titulo-seccion">Nuestra Cosecha</h1>
+  <p class="subtitulo">Esencia pura de la colmena en cada producto</p>
+
+  <div class="grid">
+
+    <!-- PRODUCTOS EXISTENTES -->
+    <div class="card">
+      <img src="1164956e-447d-4070-9c4e-789e8854ef89.jfif" alt="Propóleo">
+      <p class="nombre-producto">Extracto de Propóleo</p>
+      <p class="precio">$6</p>
+    </div>
+
+    <div class="card">
+      <img src="652d2200-8feb-4f7f-b536-15d88681272d.jfif" alt="Miel con Jengibre">
+      <p class="nombre-producto">Miel con Jengibre y Propóleo</p>
+      <p class="precio">$5</p>
+    </div>
+
+    <div class="card">
+      <img src="371b26f7-a51f-413e-a466-6f7536fd4cf9.jfif" alt="Miel Kids">
+      <p class="nombre-producto">Miel de Abeja Línea Infantil</p>
+      <p class="precio">$5</p>
+    </div>
+
+     <div class="card">
+      <img src="c505c658-e9c0-4c40-8176-2b8f5c8eb8c0.jfif" alt="Miel de Abeja">
+      <p class="nombre-producto">Balsamo de cera de abejas con vitamina E</p>
+      <p class="precio">$1,50</p>
+    </div>
+
+    <div class="card">
+      <img src="25f6e837-8b07-420b-98cd-7fb164db7de9.jfif" alt="Miel de Abeja">
+      <p class="nombre-producto">Crema hidratante de miel 40gr</p>
+      <p class="precio">$4</p>
+    </div>
+
+     <div class="card">
+      <img src="crema1_hidratante_miel.jpg" alt="Miel 500ml">
+      <p class="nombre-producto">crema hidratante de Miel 40gr</p>
+      <p class="precio">$4</p>
+    </div>
+
+     <div class="card">
+      <img src="crema3_hidrantante_miel .jpg" alt="Miel 500ml">
+      <p class="nombre-producto">crema hidratante de Miel 80gr</p>
+      <p class="precio">$6</p>
+    </div>
+
+    <div class="card">
+      <img src="1c501069-7119-471a-8c3c-7a69b25378b7.jfif" alt="Shampoo">
+      <p class="nombre-producto">Shampoo de Miel y Manzanilla</p>
+      <p class="precio">$7</p>
+    </div>
+
+  
+
+    <!-- NUEVOS PRODUCTOS - CHAMPU Y ACONDICIONADORES -->
+    <div class="card">
+      <img src="shampo_1_miel.jpg" alt="Shampoo de Miel">
+      <p class="nombre-producto">Shampoo de Miel - Sin Sal ni Parabenos</p>
+      <p class="precio">$7</p>
+    </div>
+
+  
+    <div class="card">
+      <img src="acondicionador_1_miel_manzanilla.jpg" alt="Acondicionador de Miel & Manzanilla">
+      <p class="nombre-producto">Acondicionador y Tratamiento de Miel & Manzanilla - Sin Sal ni Parabenos</p>
+      <p class="precio">$7</p>
+    </div>
+
+    <div class="card">
+      <img src="c755868f-1b81-4f2b-827a-34ff67a2aded.jfif" alt="Acondicionador de Miel & Romero">
+      <p class="nombre-producto">Acondicionador y Tratamiento de Miel & Romero - Sin Sal ni Parabenos</p>
+      <p class="precio">$7</p>
+    </div>
+
+      <div class="card">
+      <img src="9a3f7cc9-b487-4d75-8d83-6d8e8962426e.jfif" alt="Miel 500ml">
+      <p class="nombre-producto">Jabon de Miel y Sabila</p>
+      <p class="precio">$3</p>
+    </div>
+
+
+    <div class="card">
+      <img src="jabon2_avena_miel.jpg" alt="Jabón Hexagonal Miel y Avena">
+      <p class="nombre-producto">Jabón Miel y Avena</p>
+      <p class="precio">$3.00</p>
+    </div>
+
+    <div class="card">
+      <img src="jabon3_arroz_miel.jpg" alt="Jabón Hexagonal Miel y Coco">
+      <p class="nombre-producto">Jabón  Arroz y Miel</p>
+      <p class="precio">$3.00</p>
+    </div>
+
+    <div class="card">
+      <img src="jabon4_aguacate_miel .jpg" alt="Jabón Hexagonal Miel y Aguacate">
+      <p class="nombre-producto">Jabón  Miel y Aguacate</p>
+      <p class="precio">$3.00</p>
+    </div>
+
+  </div>
+
+
+  <footer>
+    <p>&copy; 2026 Melissea – Mundo de las Abejas</p>
+  </footer>
+
+</body>
+</html>
