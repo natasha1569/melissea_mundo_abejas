@@ -1,215 +1,617 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Melissea | Mundo Abejas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root { 
-      --miel: #E3B23C; 
-      --miel-oscuro: #C89B2C;
-      --crema: #FBF8F2; 
-      --marron: #5A3E2B; 
-      --blanco: #FFFFFF; 
+    :root {
+      --miel: #FFD700;
+      --miel-oscuro: #FFA500;
+      --naranja: #FF8C42;
+      --amarillo-claro: #FFF4CC;
+      --crema: #FBF8F2;
+      --marron: #5A3E2B;
+      --negro-abeja: #2C2416;
+      --blanco: #FFFFFF;
+      --verde-natural: #8FBC8F;
     }
     
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-    body { 
-      font-family: 'Montserrat', sans-serif; 
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                  url('fondo.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: var(--blanco); 
-      line-height: 1.8; 
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #FFE5B4 0%, #FFF4CC 50%, #FFE5B4 100%);
+      color: var(--negro-abeja);
+      line-height: 1.8;
       min-height: 100vh;
-    }
-
-    /* Navegación */
-    header { 
-      background: rgba(0,0,0,0.3); 
-      padding: 25px 10%; 
-      display: flex; 
-      justify-content: center; 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000; 
-      backdrop-filter: blur(8px);
+      overflow-x: hidden;
+      position: relative;
     }
     
-    nav a { 
-      margin: 0 20px; 
-      text-decoration: none; 
-      color: white; 
-      font-size: 0.85rem; 
-      text-transform: uppercase; 
-      letter-spacing: 2px; 
-      font-weight: 600; 
-      transition: color 0.3s;
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        repeating-linear-gradient(0deg, transparent 50px, rgba(255, 215, 0, 0.05) 50px, rgba(255, 215, 0, 0.05) 100px),
+        repeating-linear-gradient(60deg, transparent 50px, rgba(255, 165, 0, 0.05) 50px, rgba(255, 165, 0, 0.05) 100px),
+        repeating-linear-gradient(120deg, transparent 50px, rgba(255, 215, 0, 0.05) 50px, rgba(255, 215, 0, 0.05) 100px);
+      z-index: -1;
+      animation: panelFloat 20s ease-in-out infinite;
     }
     
-    nav a:hover { color: var(--miel); }
-
-    /* Hero Section */
-    .hero { 
-      height: 70vh; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      text-align: center; 
-      padding-top: 50px;
+    .bee {
+      position: fixed;
+      font-size: 2rem;
+      animation: flyAround 15s linear infinite;
+      z-index: 5;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
     
-    .hero-logo { 
-      width: 180px; 
-      margin-bottom: 20px; 
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); 
-      animation: fadeInDown 1.2s ease-out;
+    .bee:nth-child(1) { top: 10%; left: -50px; animation-delay: 0s; animation-duration: 20s; }
+    .bee:nth-child(2) { top: 30%; left: -50px; animation-delay: 3s; animation-duration: 25s; }
+    .bee:nth-child(3) { top: 50%; left: -50px; animation-delay: 7s; animation-duration: 18s; }
+    .bee:nth-child(4) { top: 70%; left: -50px; animation-delay: 11s; animation-duration: 22s; }
+    .bee:nth-child(5) { top: 85%; left: -50px; animation-delay: 5s; animation-duration: 24s; }
+    
+    @keyframes flyAround {
+      0% { transform: translateX(0) translateY(0) rotate(0deg); }
+      25% { transform: translateX(30vw) translateY(-20px) rotate(10deg); }
+      50% { transform: translateX(60vw) translateY(20px) rotate(-10deg); }
+      75% { transform: translateX(90vw) translateY(-15px) rotate(15deg); }
+      100% { transform: translateX(120vw) translateY(0) rotate(0deg); }
     }
     
-    .hero h1 { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 4.5rem; 
-      letter-spacing: 6px; 
+    @keyframes panelFloat {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.1) rotate(2deg); }
+    }
+    
+    header {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.95) 0%, rgba(255, 165, 0, 0.95) 100%);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 5px 20px rgba(255, 165, 0, 0.4);
+      animation: slideDown 0.8s ease-out;
+    }
+    
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--negro-abeja);
+      font-size: 1rem;
       text-transform: uppercase;
-      color: var(--miel);
-      text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
-      animation: fadeInUp 1s ease-out;
+      letter-spacing: 2px;
+      font-weight: 700;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+      overflow: hidden;
     }
-
-    /* Contenedor Misión y Visión Transparentes */
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s, height 0.5s;
+    }
+    
+    nav a:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    nav a:hover {
+      color: var(--blanco);
+      background: var(--naranja);
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(255, 140, 66, 0.5);
+    }
+    
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '🌻🌼🌸🌺🌻🌼🌸🌺';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 3rem;
+      opacity: 0.3;
+      animation: flowerWave 8s linear infinite;
+    }
+    
+    @keyframes flowerWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* Recuadro decorativo alrededor del título */
+    .title-frame {
+      position: relative;
+      padding: 80px 100px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 244, 204, 0.3) 100%);
+      border-radius: 40px;
+      box-shadow: 
+        0 0 40px rgba(255, 215, 0, 0.4),
+        inset 0 0 30px rgba(255, 215, 0, 0.2);
+      animation: frameGlow 3s ease-in-out infinite;
+    }
+    
+    @keyframes frameGlow {
+      0%, 100% { 
+        box-shadow: 
+          0 0 40px rgba(255, 215, 0, 0.4),
+          inset 0 0 30px rgba(255, 215, 0, 0.2);
+      }
+      50% { 
+        box-shadow: 
+          0 0 60px rgba(255, 165, 0, 0.6),
+          inset 0 0 40px rgba(255, 140, 66, 0.3);
+      }
+    }
+    
+    /* Una sola enredadera continua en cada lado */
+    .vine-border {
+      position: absolute;
+      background-image: url('vine-border.png');
+      background-size: auto 100%;
+      background-repeat: repeat-x;
+      z-index: 3;
+    }
+    
+    /* Borde superior */
+    .vine-border.top {
+      top: -25px;
+      left: 0;
+      right: 0;
+      height: 60px;
+    }
+    
+    /* Borde inferior */
+    .vine-border.bottom {
+      bottom: -25px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      transform: scaleY(-1);
+    }
+    
+    /* Borde izquierdo */
+    .vine-border.left {
+      left: -25px;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background-size: 100% auto;
+      background-repeat: repeat-y;
+      transform: rotate(90deg) scaleX(-1);
+      transform-origin: left top;
+      height: 100%;
+    }
+    
+    /* Borde derecho */
+    .vine-border.right {
+      right: -25px;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background-size: 100% auto;
+      background-repeat: repeat-y;
+      transform: rotate(-90deg) scaleX(-1);
+      transform-origin: right top;
+      height: 100%;
+    }
+    
+    /* Abejas y flores en las esquinas - encima de las enredaderas */
+    .corner-decoration {
+      position: absolute;
+      font-size: 2.8rem;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+      z-index: 20;
+    }
+    
+    /* Esquina superior izquierda */
+    .corner-decoration.top-left-bee {
+      top: -15px;
+      left: -15px;
+      transform: rotate(-25deg);
+    }
+    
+    .corner-decoration.top-left-flower {
+      top: 15px;
+      left: 15px;
+    }
+    
+    /* Esquina superior derecha */
+    .corner-decoration.top-right-bee {
+      top: -15px;
+      right: -15px;
+      transform: rotate(25deg);
+    }
+    
+    .corner-decoration.top-right-flower {
+      top: 15px;
+      right: 15px;
+    }
+    
+    /* Esquina inferior izquierda */
+    .corner-decoration.bottom-left-bee {
+      bottom: -15px;
+      left: -15px;
+      transform: rotate(-155deg);
+    }
+    
+    .corner-decoration.bottom-left-flower {
+      bottom: 15px;
+      left: 15px;
+    }
+    
+    /* Esquina inferior derecha */
+    .corner-decoration.bottom-right-bee {
+      bottom: -15px;
+      right: -15px;
+      transform: rotate(155deg);
+    }
+    
+    .corner-decoration.bottom-right-flower {
+      bottom: 15px;
+      right: 15px;
+    }
+    
+    .hero h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 4.5rem;
+      letter-spacing: 4px;
+      background: linear-gradient(135deg, var(--miel) 0%, var(--naranja) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 3px 3px 0 rgba(255, 165, 0, 0.3);
+      animation: slideUp 1s ease-out;
+      position: relative;
+      padding: 10px;
+      z-index: 10;
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
     .main-container {
-      max-width: 1200px;
-      margin: 20px auto 100px;
+      max-width: 1400px;
+      margin: 40px auto 100px;
       padding: 0 20px;
     }
-
+    
     .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+    
+    .card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 244, 204, 0.95) 100%);
+      padding: 50px 40px;
+      border-radius: 30px;
+      border: 4px solid var(--miel);
+      text-align: center;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 15px 40px rgba(255, 165, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out backwards;
+    }
+    
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card::before {
+      content: '🍯';
+      position: absolute;
+      top: -30px;
+      right: 20px;
+      font-size: 4rem;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--miel), transparent);
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-20px) scale(1.05) rotate(2deg);
+      box-shadow: 0 25px 60px rgba(255, 140, 66, 0.5);
+      border-color: var(--naranja);
+    }
+    
+    .card:hover::before {
+      opacity: 1;
+      top: 15px;
+      animation: honeyDrip 1s ease-in-out;
+    }
+    
+    .card:hover::after {
+      transform: scaleX(1);
+    }
+    
+    @keyframes honeyDrip {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    
+    .card h2 {
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(135deg, var(--naranja) 0%, var(--miel-oscuro) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 25px;
+      font-size: 3rem;
+      position: relative;
+    }
+    
+    .card h2::before {
+      content: attr(data-icon);
+      display: block;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      animation: iconBounce 2s ease-in-out infinite;
+    }
+    
+    @keyframes iconBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    .card p {
+      font-size: 1.2rem;
+      color: var(--negro-abeja);
+      font-weight: 400;
+      line-height: 2;
+    }
+    
+    .info-images {
+      margin-top: 80px;
+    }
+    
+    .section-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--miel) 0%, var(--naranja) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 50px;
+      animation: slideUp 0.8s ease-out;
+    }
+    
+    .image-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 40px;
     }
-
-    .card { 
-      background: rgba(255, 255, 255, 0.1); 
-      backdrop-filter: blur(10px);
-      padding: 60px 45px; 
-      border-radius: 25px; 
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      transition: all 0.4s ease;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
     
-    .card:hover { 
-      transform: translateY(-10px); 
-      background: rgba(255, 255, 255, 0.15);
-      border-color: var(--miel);
-    }
-    
-    .card h2 { 
-      font-family: 'Playfair Display', serif; 
-      color: var(--miel); 
-      margin-bottom: 25px; 
-      font-size: 2.8rem; 
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .card p {
-      font-size: 1.3rem; 
-      color: var(--blanco);
-      font-weight: 300;
-      line-height: 1.9;
-    }
-
-    /* Estilos para la sección de imágenes informativas */
-    .info-images {
-      margin-top: 60px;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
     .image-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 244, 204, 0.9) 100%);
+      border-radius: 30px;
+      border: 4px solid var(--miel);
       overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 20px 50px rgba(255, 140, 66, 0.3);
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+      animation: fadeInScale 0.8s ease-out backwards;
     }
-
+    
+    .image-card:nth-child(1) { animation-delay: 0.3s; }
+    .image-card:nth-child(2) { animation-delay: 0.5s; }
+    
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    .image-card::before {
+      content: '✨';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      z-index: 10;
+      animation: sparkle 2s ease-in-out infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .image-card:hover::before {
+      opacity: 1;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.3) rotate(180deg); }
+    }
+    
     .image-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 40px rgba(0,0,0,0.25);
-      border-color: var(--miel);
+      transform: translateY(-15px) rotate(-2deg) scale(1.05);
+      box-shadow: 0 30px 70px rgba(255, 140, 66, 0.5);
+      border-color: var(--naranja);
     }
-
+    
     .image-card img {
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
-
+    
     .image-card:hover img {
-      transform: scale(1.03);
+      transform: scale(1.1) rotate(2deg);
     }
-
-    footer { 
-      background: rgba(0,0,0,0.5); 
-      backdrop-filter: blur(10px);
-      color: white; 
-      text-align: center; 
-      padding: 60px; 
-      font-size: 1rem; 
+    
+    footer {
+      background: linear-gradient(135deg, var(--miel) 0%, var(--naranja) 100%);
+      color: var(--negro-abeja);
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
       letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 -10px 30px rgba(255, 140, 66, 0.3);
     }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    footer::before {
+      content: '🐝🌼🐝🌼🐝🌼🐝🌼🐝🌼';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 200%;
+      font-size: 1.5rem;
+      animation: footerBuzz 20s linear infinite;
+      opacity: 0.6;
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    @keyframes footerBuzz {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-
+    
+    footer p {
+      position: relative;
+      z-index: 1;
+    }
+    
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.8rem; }
+      .title-frame {
+        padding: 50px 40px;
+      }
+      
+      .hero h1 { 
+        font-size: 2.5rem; 
+      }
+      
+      .vine-border {
+        height: 50px !important;
+      }
+      
+      .vine-border.left,
+      .vine-border.right {
+        width: 50px !important;
+      }
+      
+      .corner-decoration {
+        font-size: 2rem;
+      }
+      
       .card h2 { font-size: 2.2rem; }
-      .card p { font-size: 1.1rem; }
+      .card h2::before { font-size: 2.5rem; }
+      .section-title { font-size: 2rem; }
       .info-grid { grid-template-columns: 1fr; }
-      .image-grid {
-        grid-template-columns: 1fr;
-      }
-      .image-card {
-        border-radius: 15px;
-      }
+      .image-grid { grid-template-columns: 1fr; }
+      nav { gap: 10px; }
+      nav a { font-size: 0.85rem; padding: 10px 18px; }
+      .bee { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
+  <div class="bee">🐝</div>
+  <div class="bee">🐝</div>
+  <div class="bee">🐝</div>
+  <div class="bee">🐝</div>
+  <div class="bee">🐝</div>
 
   <header>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="acerca.html">Acerca</a>
-      <a href="productos.html">Productos</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="index.html">🏠 Inicio</a>
+      <a href="acerca.html">ℹ️ Acerca</a>
+      <a href="productos.html">🍯 Productos</a>
+      <a href="contacto.html">📧 Contacto</a>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-content">
+    <div class="title-frame">
+    
+      
+      <!-- Esquina superior izquierda: 1 abeja y 1 flor -->
+      <div class="corner-decoration top-left-bee">🐝</div>
+      <div class="corner-decoration top-left-flower">🌼</div>
+      
+      <!-- Esquina superior derecha: 1 abeja y 1 flor -->
+      <div class="corner-decoration top-right-bee">🐝</div>
+      <div class="corner-decoration top-right-flower">🌻</div>
+      
+      <!-- Esquina inferior izquierda: 1 abeja y 1 flor -->
+      <div class="corner-decoration bottom-left-bee">🐝</div>
+      <div class="corner-decoration bottom-left-flower">🌸</div>
+      
+      <!-- Esquina inferior derecha: 1 abeja y 1 flor -->
+      <div class="corner-decoration bottom-right-bee">🐝</div>
+      <div class="corner-decoration bottom-right-flower">🌺</div>
+      
       <h1>MUNDO ABEJAS MELISSEA</h1>
     </div>
   </section>
@@ -217,34 +619,30 @@
   <div class="main-container">
     <div class="info-grid">
       <div class="card">
-        <h2>Misión</h2>
+        <h2 data-icon="🎯">Misión</h2>
         <p>Promovemos el bienestar integral a través de productos naturales de alta calidad, elaborados con amor y respeto por las abejas. Aspiramos a transformar la conciencia hacia un estilo de vida saludable y sostenible.</p>
       </div>
-
       <div class="card">
-        <h2>Visión</h2>
+        <h2 data-icon="🔬">Visión</h2>
         <p>Nos dedicamos a proteger a las abejas mediante la educación ambiental y productos que cuidan la salud y el equilibrio del ecosistema, ofreciendo cosmética consciente y natural.</p>
       </div>
     </div>
 
-    <!-- Sección de imágenes -->
     <section class="info-images">
+      <h2 class="section-title">🌟 Descubre el Mundo de las Abejas 🌟</h2>
       <div class="image-grid">
         <div class="image-card">
-          <img src="beneficios2_abejas.jpg" alt="Beneficios de las abejas" />
+          <img src="beneficios2_abejas.jpg">
         </div>
-        
         <div class="image-card">
-          <img src="datos-curiosos-sobre-las-abejas4.webp" alt="Datos curiosos sobre las abejas" />
+          <img src="datos-curiosos-sobre-las-abejas4.webp">
         </div>
       </div>
     </section>
   </div>
 
   <footer>
-    &copy; 2026 Melissea – Mundo de las Abejas <br>
-    Inspiración y equilibrio entre la naturaleza y tú.
+    <p>🐝 &copy; 2026 Melissea – Mundo de las Abejas 🐝<br>Inspiración y equilibrio entre la naturaleza y tú 🌻</p>
   </footer>
-
 </body>
 </html>
