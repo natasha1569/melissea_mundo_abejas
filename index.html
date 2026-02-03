@@ -544,6 +544,24 @@
     }
     
     @media (max-width: 768px) {
+      /* Mobile 2x2 navigation layout */
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 10px;
+      }
+      
+      nav a {
+        flex: 1 0 48%;
+        max-width: 48%;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 5px 0;
+        font-size: 0.85rem;
+        padding: 10px 15px;
+      }
+      
       .title-frame {
         padding: 50px 40px;
       }
@@ -570,8 +588,6 @@
       .section-title { font-size: 2rem; }
       .info-grid { grid-template-columns: 1fr; }
       .image-grid { grid-template-columns: 1fr; }
-      nav { gap: 10px; }
-      nav a { font-size: 0.85rem; padding: 10px 18px; }
       .bee { font-size: 1.5rem; }
     }
   </style>
@@ -594,8 +610,6 @@
 
   <section class="hero">
     <div class="title-frame">
-    
-      
       <!-- Esquina superior izquierda: 1 abeja y 1 flor -->
       <div class="corner-decoration top-left-bee">🐝</div>
       <div class="corner-decoration top-left-flower">🌼</div>
@@ -612,7 +626,7 @@
       <div class="corner-decoration bottom-right-bee">🐝</div>
       <div class="corner-decoration bottom-right-flower">🌺</div>
       
-      <h1>MUNDO ABEJAS MELISSEA</h1>
+      <h1>MELISSEA MUNDO ABEJAS</h1>
     </div>
   </section>
 
