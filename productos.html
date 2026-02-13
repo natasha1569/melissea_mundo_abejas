@@ -259,6 +259,31 @@
         padding:10px 12px;
       }
     }
+    /* WhatsApp floating button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      background: linear-gradient(135deg, #25D366 0%, #1ebe5d 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      z-index: 9999;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+    @media (max-width: 768px) {
+      .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+      .whatsapp-float svg { width: 26px; height: 26px; }
+    }
   </style>
 </head>
 
@@ -448,6 +473,12 @@
   🐝 © 2026 Melissea – Mundo de las Abejas 🐝 <br>
   Inspiración y equilibrio entre la naturaleza y tú 🌻
 </footer>
+
+<a href="https://wa.me/593985090463?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20productos" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 32 32">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.737 5.607 2.137 8.048L0 32l8.137-2.127A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333c-2.62 0-5.18-.707-7.407-2.047l-.53-.313-4.827 1.26 1.287-4.7-.344-.546A13.29 13.29 0 0 1 2.667 16C2.667 8.833 8.833 2.667 16 2.667S29.333 8.833 29.333 16 23.167 29.333 16 29.333zm7.173-9.927c-.393-.197-2.327-1.147-2.687-1.277-.36-.13-.623-.197-.887.197-.263.393-1.017 1.277-1.247 1.54-.23.263-.46.296-.853.099-.393-.197-1.66-.612-3.162-1.953-1.168-1.042-1.955-2.327-2.185-2.72-.23-.393-.025-.605.172-.802.177-.176.393-.46.59-.69.197-.23.263-.393.393-.656.13-.263.065-.493-.032-.69-.098-.197-.887-2.147-1.215-2.94-.32-.77-.647-.666-.887-.678l-.757-.014c-.263 0-.69.098-1.05.493-.36.393-1.377 1.347-1.377 3.28 0 1.933 1.41 3.8 1.607 4.063.197.263 2.777 4.24 6.73 5.94.94.405 1.673.647 2.244.828.943.3 1.803.258 2.482.157.757-.113 2.327-.95 2.657-1.867.328-.917.328-1.703.23-1.867-.098-.164-.36-.263-.753-.46z"/>
+  </svg>
+</a>
 
 </body>
 </html>
