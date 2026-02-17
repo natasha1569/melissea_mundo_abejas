@@ -117,15 +117,17 @@
 
     /* 🌼 FLORES ANIMADAS */
     .main-container::before{
-      content:'🌻🌼🌸🌺🌻🌼🌸🌺';
-      position:absolute;
-      bottom:-20px;
-      left:0;
-      width:200%;
-      font-size:3rem;
-      opacity:.3;
-      animation:flowerWave 10s linear infinite
-    }
+  content:'🌻🌼🌸🌺🌻🌼🌸🌺';
+  position:absolute;
+  bottom:-20px;
+  left:0;
+  width:100%;   /* ← CAMBIADO */
+  font-size:3rem;
+  opacity:.3;
+  white-space:nowrap; /* opcional */
+  animation:flowerWave 10s linear infinite;
+}
+
 
     @keyframes flowerWave{
       from{transform:translateX(0)}
@@ -334,7 +336,7 @@
   <div class="card">
     <img src="extracto de popoleo.jpg" class="product-img">
     <div class="product-name">Extracto de Propóleo</div>
-    <div class="price">$5</div>
+    <div class="price">$6</div>
   </div>
 
    <div class="card">
